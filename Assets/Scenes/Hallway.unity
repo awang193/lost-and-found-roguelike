@@ -516,31 +516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e68842eaa9e944db96c917be639aaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &431080115 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6392924307560058328, guid: a3901e74a529842a9b216eb0f6270031, type: 3}
-  m_PrefabInstance: {fileID: 532849645}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &431080116
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431080115}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6f942015295c499480ff09b0f20f8eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,10 +668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6392924307560058330, guid: a3901e74a529842a9b216eb0f6270031, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4764f4896a2674c99b0b55ce022fc1af, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3901e74a529842a9b216eb0f6270031, type: 3}
 --- !u!1 &650243982

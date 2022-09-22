@@ -33,28 +33,6 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetFloat("dirX", xAxis);
         m_Animator.SetFloat("dirY", yAxis);
 
-        if (yAxis > 0)
-        {
-            m_Animator.SetFloat("movingN", 1);
-        }
-        else if (yAxis < 0)
-        {
-            m_Animator.SetFloat("movingN", -1);
-        }
-        else
-        {
-            m_Animator.SetFloat("movingN", 0);
-        }
-
-        if (xAxis > 0)
-        {
-            m_Animator.SetFloat("movingE", 1);
-        }
-        else if (xAxis < 0)
-        {
-            m_Animator.SetFloat("movingE", -1);
-        }
-
         Vector2 moveDirection = new Vector2(xAxis, yAxis);
         p_RigidBody.velocity = moveDirection * p_Speed;
     }
