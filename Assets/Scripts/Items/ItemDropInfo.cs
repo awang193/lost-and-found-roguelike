@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemDropInfo
 {
     #region Editor Variables
+
     [SerializeField]
     private GameObject m_ItemPrefab;
     public GameObject ItemPrefab
@@ -13,6 +14,16 @@ public class ItemDropInfo
         get
         {
             return m_ItemPrefab;
+        }
+    }
+
+    [SerializeField]
+    private string m_Name;
+    public string Name
+    {
+        get
+        {
+            return m_Name;
         }
     }
 

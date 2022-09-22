@@ -28,4 +28,11 @@ public class PlayerController : MonoBehaviour
         p_RigidBody.velocity = moveDirection * p_Speed;
     }
     #endregion
+
+    #region Collision
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Player entered trigger!");
+    }
+    #endregion
 }

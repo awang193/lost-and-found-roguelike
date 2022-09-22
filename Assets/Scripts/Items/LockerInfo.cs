@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LockerInfo : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class LockerInfo : MonoBehaviour
     #region Interaction Methods
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown("E") && !p_Opened)
+        if (Input.GetKeyDown(KeyCode.E) && !p_Opened)
         {
             p_Opened = true;
 
@@ -35,7 +36,8 @@ public class LockerInfo : MonoBehaviour
             {
                 if (rand < itemDropInfo.DropRate)
                 {
-                    // Instantiate item
+                    // Instantiate dropped item
+                    Debug.Log("Locker dropped " + itemDropInfo.Name);
                 }
             }
         }
