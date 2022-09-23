@@ -50,7 +50,7 @@ public class Pellet : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().DecreaseHealth(m_Player.Damage);
+            other.GetComponent<Enemy>().TakeDamage(DataManager.st.pub_Damage);
             Destroy(gameObject);
         }
     }

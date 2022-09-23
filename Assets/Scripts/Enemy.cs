@@ -24,12 +24,14 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region Health Methods
-    public void DecreaseHealth(float amount)
+    public void TakeDamage(float amount)
     {
         p_CurrHealth = Mathf.Max(p_CurrHealth - amount, 0);
         
         if (p_CurrHealth <= 0)
         {
+            DataManager.st.UpdateScore(300);
+
             Debug.Log("Monster destroyed!");
             Destroy(gameObject);
         }
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().UpdateHealth(-1 * m_Damage);
+            other.GetComponent<PlayerController>().TakeDamage(m_Damage);
         }
     }
     #endregion

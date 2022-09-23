@@ -6,26 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     #region Editor Variables
     [SerializeField]
-    private float m_Speed;
+    private HUDManager m_HUDManager;
 
     [SerializeField]
-    private float m_Damage;
-    public float Damage
-    {
-        get
-        {
-            return m_Damage;
-        }
-    }
+    private float m_Speed;
 
     [SerializeField]
     private GameObject m_PelletPrefab;
 
     [SerializeField]
     private int m_MaxHealth;
-
-    [SerializeField]
-    private RectTransform m_HealthBarTransform;
     #endregion
 
     #region Private Variables
@@ -33,12 +23,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D p_RigidBody;
 
     // Health-related fields
+    private float p_CurrDamage;
     private float p_CurrHealth;
-    private float p_MaxHealthBarWidth;
     #endregion
 
     #region Public Variables
-    public float pub_CurrDamage;
     public bool pub_FoundHydroflask;
     #endregion
 
@@ -47,15 +36,16 @@ public class PlayerController : MonoBehaviour
     {
         p_PlayerAnimator = GetComponent<Animator>();
         p_RigidBody = GetComponent<Rigidbody2D>();
-
-        p_CurrHealth = m_MaxHealth;
-        p_MaxHealthBarWidth = m_HealthBarTransform.sizeDelta.x;
+        p_CurrDamage = DataManager.st.pub_Damage;
+        p_CurrHealth = DataManager.st.pub_Health;
     }
     #endregion
 
     #region Updates
     private void Update()
     {
+        m_HUDManager.UpdateHealth(p_CurrHealth / m_MaxHealth);
+
         // Movement and animation
         float xAxis = Input.GetAxisRaw("Horizontal");
         float yAxis = Input.GetAxisRaw("Vertical");
@@ -72,15 +62,14 @@ public class PlayerController : MonoBehaviour
         {   
             Instantiate(m_PelletPrefab, transform.position, Quaternion.identity);
         }
-
     }
     #endregion
 
     #region Health Methods
-    public void UpdateHealth(float amount)
+    public void TakeDamage(float amount)
     {
-        p_CurrHealth = Mathf.Max(Mathf.Min(p_CurrHealth + amount, m_MaxHealth), 0);
-        m_HealthBarTransform.sizeDelta = new Vector2(p_CurrHealth / m_MaxHealth * p_MaxHealthBarWidth, m_HealthBarTransform.sizeDelta.y);
+        p_CurrHealth = Mathf.Max(Mathf.Min(p_CurrHealth - amount, m_MaxHealth), 0);
+        DataManager.st.pub_Health = p_CurrHealth;
 
         if (p_CurrHealth <= 0)
         {
@@ -93,7 +82,8 @@ public class PlayerController : MonoBehaviour
     #region Damage Methods
     public void UpdateDamage(float multiplier)
     {
-        m_Damage *= multiplier;
+        p_CurrDamage *= multiplier;
+        DataManager.st.pub_Damage = p_CurrDamage;
     }
     #endregion
 

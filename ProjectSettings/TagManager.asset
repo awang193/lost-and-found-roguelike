@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lootbox
   - Enemy
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

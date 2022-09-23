@@ -15,6 +15,8 @@ public class DroppedItem : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.CompareTag("Player"))
         {
+            DataManager.st.UpdateScore(100);
+
             PlayerController pc = other.GetComponent<PlayerController>();
             if (m_IsHydroflask)
             {
