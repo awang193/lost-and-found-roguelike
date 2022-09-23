@@ -35,10 +35,11 @@ public class PlayerController : MonoBehaviour
     // Health-related fields
     private float p_CurrHealth;
     private float p_MaxHealthBarWidth;
+    #endregion
 
-    // Item-related fields
-    private bool p_FoundHydroflask;
-    private bool p_FoundSlingshot;
+    #region Public Variables
+    public float pub_CurrDamage;
+    public bool pub_FoundHydroflask;
     #endregion
 
     #region Initialization
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         p_RigidBody.velocity = moveDirection * m_Speed;
 
         // Shooting pellets
-        if (Input.GetMouseButtonDown(0))
+        if (pub_FoundHydroflask && Input.GetMouseButtonDown(0))
         {   
             Instantiate(m_PelletPrefab, transform.position, Quaternion.identity);
         }
@@ -86,6 +87,13 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             Debug.LogWarning("Game Over!");
         }
+    }
+    #endregion
+
+    #region Damage Methods
+    public void UpdateDamage(float multiplier)
+    {
+        m_Damage *= multiplier;
     }
     #endregion
 

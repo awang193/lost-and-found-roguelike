@@ -27,7 +27,7 @@ public class LockerInfo : MonoBehaviour
     #region Interaction Methods
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E) && !p_Opened)
+        if (Input.GetKey(KeyCode.E) && !p_Opened)
         {
             p_Opened = true;
 
@@ -36,8 +36,12 @@ public class LockerInfo : MonoBehaviour
             {
                 if (rand < itemDropInfo.DropRate)
                 {
-                    // Instantiate dropped item
                     Debug.Log("Locker dropped " + itemDropInfo.Name);
+
+                    Vector3 spawnPos = transform.position;
+                    spawnPos.y -= 2.5f;
+
+                    Instantiate(itemDropInfo.ItemPrefab, spawnPos, Quaternion.identity);
                 }
             }
         }

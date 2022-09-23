@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &6373507455685115880
 MonoBehaviour:
@@ -72,9 +72,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ItemDropInfos:
-  - m_ItemPrefab: {fileID: 0}
-    m_Name: Loot Item
-    m_DropRate: 1
-  - m_ItemPrefab: {fileID: 0}
-    m_Name: Loot Item
-    m_DropRate: 1
+  - m_ItemPrefab: {fileID: 4814446994310969449, guid: 85b1f8f174dea324aa022fcf3bf02b22, type: 3}
+    m_Name: Hydroflask
+    m_DropRate: 0.5
